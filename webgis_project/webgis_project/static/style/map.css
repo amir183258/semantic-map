@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Explora', cursive;
+    font-family: 'Sofia Sans Semi Condensed', sans-serif;
+    font-weight: bold;
+}
+
 #map {
     width: 100%;
     height: 100vh;
