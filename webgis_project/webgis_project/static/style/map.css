@@ -30,3 +30,22 @@ body {
 #logout:hover {
     background-color: #4a74a8;
 }
+
+.address{
+    padding: 10px;
+    position: fixed;
+    bottom:10px;
+    left: 10px;
+    width:200px;
+    height:100px;
+    text-align: center;
+    align-items: center;
+    background-color: rgba(123, 152, 188, 0.93);
+    color:white;
+    font-size: .9rem;
+    border: 1px solid white;
+}
+
+.address:hover {
+    background-color: #4a74a8;
+}
