@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Explora&family=Sofia+Sans+Semi+Condensed:wght@200&display=swap" rel="stylesheet">
+    <title>Login</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            font-family: 'Explora', cursive;
+            font-family: 'Sofia Sans Semi Condensed', sans-serif;
+            font-weight: bold;
+            background-image: url("{% static 'img/map.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #form {
+            border: 1px solid gray;
+            padding: 30px;
+            border-radius: 4px;
+            background-color: rgb(170, 211, 223);
+            background-color: rgba(170, 211, 223, 0.9);
+        }
+
+        #logo {
+            width: 150px;
+            display: block;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+
+        .prompt {
+            width: 400px;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .label{
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+
+        input[type=text] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            width: 100%;
+            background-color: #7b98bc ;
+            padding: 10px;
+            font-size: 22px;
+            border-radius: 4px;
+            margin-top: 20px;
+            font-family: 'Explora', cursive;
+            font-family: 'Sofia Sans Semi Condensed', sans-serif;
+            font-weight: bold;
+            border-color: black;
+        }
+
+        .btn:hover {
+            background-color: #af98aa;
+        }
+    </style>
+</head>
+<body>
+    <div id="form">
+        <img id="logo" src="{% static 'img/logo.png' %}" alt="Logo">
+        <p class="prompt">Enter your username and password to login.</p>
+        <form method="POST">
+            {% csrf_token %}
+
+            <label for="username" class="label">Username</label>
+            <div id="username" class="field">{{ form.username }}</div>
+
+            <label for="password" class="label">Password</label>
+            <div id="password" class="field">{{ form.password }}</div>
+
+            <button class="btn" type="submit">Login</button>
+        </form>
+    </div>
+
+    <script src="{% static 'app/login.js' %}"></script>
+</body>
+</html>

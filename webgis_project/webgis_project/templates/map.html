@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+
+    <link rel="stylesheet" href="{% static 'lib/ol3/ol.css' %}">
+    <link rel="stylesheet" href="{% static 'style/map.css' %}">
+</head>
+<body>
+    <!-- {% if user.is_authenticated %}
+    <a href="/logout">Logout</a>
+    {% endif %} -->
+
+    <div id="map"></div>
+
+    <script src="{% static 'lib/ol3/ol-debug.js' %}"></script>
+    <script src="{% static 'app/map.js' %}"></script>
+
+    <script>
+        function addMarker(coordinates) {
+            vectorSource.clear();
+            const iconGeometry = new ol.geom.Point(ol.proj.fromLonLat(coordinates));
+            var iconFeature = new ol.Feature({
+                geometry: iconGeometry,
+            });
+            var iconStyle = new ol.style.Style({
+                image: new ol.style.Icon({
+                anchor: [0.5, 20],
+                anchorXUnits: "fraction",
+                anchorYUnits: "pixels",
+                size: [24, 24],
+                opacity: 1,
+                src: "{% static 'img/marker.png' %}",
+                }),
+            });
+            iconFeature.setStyle(iconStyle);
+            vectorSource.addFeatures([iconFeature]);
+        }
+    </script>
+</body>
+</html>
