@@ -49,3 +49,43 @@ body {
 .address:hover {
     background-color: #4a74a8;
 }
+
+#information {
+    position: fixed;
+    bottom: 10px;
+    left: 230px;
+    width: 500px;
+    height: 100px;
+    background-color: rgba(123, 152, 188, 0.93);
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#information:hover {
+    background-color: #4a74a8;
+}
+
+#information iframe {
+    width: 100%;
+    height: 90px;
+}
+
+#identify {
+    width: 100%;
+    text-align: center;
+}
+
+#identify, td, th{
+    border: 1px solid white;
+    border-collapse: collapse;
+    padding: 15px;
+}
+
+#identify {
+    color: white;
+}
+
+
+
