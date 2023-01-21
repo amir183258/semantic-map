@@ -110,6 +110,28 @@ map.on("click", function (evt) {
         }
 
     });
-
-
 });
+
+// Get feature with WFS
+var url = "http://localhost:8080/geoserver/nyc/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=nyc%3Aafrica2&maxFeatures=50&outputFormat=application%2Fjson" 
+
+var africaSource = new ol.source.Vector({
+        format: new ol.format.GeoJSON(),
+        url: function(extent) {
+            return url
+        },
+});
+
+var africa = new ol.layer.Vector({
+source: africaSource,
+    style: new ol.style.Style({
+        stroke: new ol.style.Stroke({
+        color: 'rgba(255, 0, 255, 1.0)',
+        width: 2
+        }),
+        fill: new ol.style.Fill({
+            color: "rgba(255, 0, 255, 0.5)"
+        })
+    })
+});
+map.addLayer(africa);
